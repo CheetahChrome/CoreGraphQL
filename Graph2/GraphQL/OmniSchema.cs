@@ -14,5 +14,7 @@ namespace Graph2.GraphQL
         {
             Query = resolver.Resolve<WorldWideQuery>();
         }
+
+
     }
 }

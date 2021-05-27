@@ -21,6 +21,19 @@ namespace Graph2.GraphQL.Queries
                 "customers"
                 , resolve: context => cVector.GetAllModels()
                 );
+
+            Field<ListGraphType<CustomerType>>(
+                 "customer",
+                 "Get Customer By ID",
+                 new QueryArguments(
+                     new QueryArgument<IntGraphType> { Name = "customerID" }
+                     )
+                 , resolve: context => cVector.GetAllModels()
+                                              .Result.Where(md => md.CustomerID == (int)context.Arguments["customerID"])
+
+                 );
+
+
         }
 
     }
